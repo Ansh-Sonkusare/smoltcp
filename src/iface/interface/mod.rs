@@ -1181,7 +1181,7 @@ impl InterfaceInner {
         }
 
         // The request got dispatched, limit the rate on the cache.
-        self.neighbor_cache.limit_rate(self.now);
+        self.neighbor_cache.limit_rate(dst_addr, self.now);
         Err(DispatchError::NeighborPending)
     }
 
